@@ -1,0 +1,109 @@
+import React from "react";
+import Image from "next/image";
+import profilePic from "@/assets/pp.jpeg";
+
+export default function Portfolio() {
+  const projects = [
+    {
+      title: "Upwork for Freelancers",
+      company: "Upwork Global Inc.",
+      role: "Senior Android Developer",
+      tech: "Kotlin, MVVM, JUnit, Android Studio",
+      contributions: [
+        "Developed and maintained the Android Freelancer app",
+        "Conducted robust testing and bug fixes",
+        "Participated in planning, code reviews, and release cycles"
+      ],
+      link: "https://play.google.com/store/apps/details?id=com.upwork.android.apps.main"
+    },
+    {
+      title: "Upwork for Clients",
+      company: "Upwork Global Inc.",
+      role: "Senior Android Developer",
+      tech: "Kotlin, MVVM, Coroutines, Git",
+      contributions: [
+        "Implemented new client features and ensured cross-version compatibility",
+        "Actively resolved production issues and reviewed peer code"
+      ],
+      link: "https://play.google.com/store/apps/details?id=com.upwork.android.apps.client"
+    },
+    {
+      title: "HomePass by Plume",
+      company: "Plume Design Inc.",
+      role: "Senior Software Engineer – Android",
+      tech: "Kotlin, KMM, Clean Architecture, TDD, Crashlytics",
+      contributions: [
+        "Collaborated with Silicon Valley team to enhance app performance",
+        "Reduced crash reports to achieve 99% crash-free sessions",
+        "Led feature development and managed releases through DEV, QA, UAT, and PROD"
+      ],
+      link: "https://play.google.com/store/apps/details?id=com.plumewifi.plume"
+    },
+    {
+      title: "WorkPass by Plume",
+      company: "Plume Design Inc.",
+      role: "Senior Software Engineer – Android",
+      tech: "Kotlin, KMM, Domain-Driven Design, TDD",
+      contributions: [
+        "Developed enterprise WiFi management features",
+        "Used unit testing and architectural best practices to ensure reliability"
+      ],
+      link: "https://play.google.com/store/apps/details?id=com.plume.business.gamma"
+    },
+    {
+      title: "Keyflow – Your Key to Global Nightlife",
+      company: "Synavos",
+      role: "Lead Android Developer",
+      tech: "Kotlin, Firebase, Room, MVVM",
+      contributions: [
+        "Built nightlife event discovery platform",
+        "Delivered seamless user experiences with high-fidelity UIs"
+      ],
+      link: "https://play.google.com/store/apps/details?id=se.keyflow.android.guest"
+    },
+    {
+      title: "Keyflow Business",
+      company: "Synavos",
+      role: "Lead Android Developer",
+      tech: "Kotlin, REST APIs, Jetpack Libraries",
+      contributions: [
+        "Created venue management interface for nightlife partners",
+        "Ensured high-performance and scalable architecture"
+      ],
+      link: "https://play.google.com/store/apps/details?id=se.keyflow.android.venue"
+    },
+    {
+      title: "AfriPay Money Transfer",
+      company: "CYBUS Solutions Ltd.",
+      role: "Lead Android Developer",
+      tech: "Kotlin, Room, Retrofit, SQL",
+      contributions: [
+        "Developed international money transfer solution",
+        "Integrated secure transaction features with API support"
+      ],
+      link: "https://play.google.com/store/apps/details?id=com.AfriPay.App.afri_pay"
+    }
+  ];
+
+  return (
+    <div className="p-6 max-w-4xl mx-auto">
+      <div className="flex items-center mb-6">
+        <Image src={profilePic} alt="Hamza Bin Tariq" width={96} height={96} className="rounded-full mr-4" />
+        <h1 className="text-3xl font-bold">Hamza Bin Tariq – Android Apps Portfolio</h1>
+      </div>
+      {projects.map((app, idx) => (
+        <div key={idx} className="mb-8 p-4 rounded-2xl shadow-lg bg-white">
+          <h2 className="text-xl font-semibold">{app.title}</h2>
+          <p className="text-sm text-gray-600">{app.company} — {app.role}</p>
+          <p className="text-sm text-gray-700 my-2"><strong>Tech Stack:</strong> {app.tech}</p>
+          <ul className="list-disc list-inside text-gray-800 mb-2">
+            {app.contributions.map((point, i) => (
+              <li key={i}>{point}</li>
+            ))}
+          </ul>
+          <a href={app.link} target="_blank" className="text-blue-600 hover:underline text-sm">View on Play Store</a>
+        </div>
+      ))}
+    </div>
+  );
+}
